@@ -1,7 +1,13 @@
 package garam.calendar;
 import java.util.Scanner ;
 public class Calendar {
+	
+	private static final int[] maxDayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;  
 
+	public int getMaxDaysOfMonth(int mon) {
+		return maxDayOfMonth[mon-1] ;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("   일   월   화   수   목   금   토");
@@ -14,7 +20,7 @@ public class Calendar {
 
 		
 		// 슛자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
-        int[] maxDayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ; 
+        //int[] maxDayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ; 
 		
         // maxDayOfMonth[0] = 31;
         // maxDayOfMonth[1] = 28;
@@ -30,14 +36,16 @@ public class Calendar {
         // maxDayOfMonth[11] = 31;
         
         
+		Calendar cal = new Calendar() ;
 		
         System.out.print("월을 입력하세요 : ");
 		Scanner scanner = new Scanner(System.in) ;
         
-		int inValMonth = Integer.parseInt(scanner.nextLine()) ;
+		//int inValMonth = Integer.parseInt(scanner.nextLine()) ;
+		int inValMonth = scanner.nextInt() ;
 		
 		if ( (inValMonth > 0 ) && (inValMonth < 13) ) {
-		  System.out.println("입력하신 " + inValMonth + "월의 마지막 날은 " + maxDayOfMonth[inValMonth-1] + " 입니다.");
+		  System.out.printf("입력하신  %d 월의 마지막 날은 %d 입니다.\n" , inValMonth, cal.getMaxDaysOfMonth(inValMonth));
 		} else {
 			System.out.println("잘못된 월을 입력하셨습니다. " ) ;
 		}
