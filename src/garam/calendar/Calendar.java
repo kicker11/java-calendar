@@ -35,27 +35,38 @@ public class Calendar {
         // maxDayOfMonth[10]= 30;
         // maxDayOfMonth[11] = 31;
         
-        
+        String PROMPT = " Cal > " ;
 		Calendar cal = new Calendar() ;
 		Scanner scanner = new Scanner(System.in) ;
 		
-		System.out.print("반복 횟수 ? : ");
-		int cnt = scanner.nextInt(); 
 		
-		for ( int i = 0; i < cnt; i++) {
-	        System.out.print("월을 입력하세요 : ");
-			
-	        
+		//System.out.print("반복 횟수 ? : ");
+		//int cnt = scanner.nextInt(); 
+		
+		
+	    int cnt = 0 ;
+	    
+	    while (true) {    
 			//int inValMonth = Integer.parseInt(scanner.nextLine()) ;
-			int inValMonth = scanner.nextInt() ;
+			
+	    	System.out.print(PROMPT);
+		    System.out.print("월을 입력하세요 : "); 
+		    //System.out.println("\n");
+				    	
+	    	int inValMonth = scanner.nextInt() ;
 			
 			if ( (inValMonth > 0 ) && (inValMonth < 13) ) {
-			  System.out.printf("입력하신  %d 월의 마지막 날은 %d 입니다.\n" , inValMonth, cal.getMaxDaysOfMonth(inValMonth));
+			    System.out.print(PROMPT);
+				System.out.printf("입력하신  %d 월의 마지막 날은 %d 입니다.\n" , inValMonth, cal.getMaxDaysOfMonth(inValMonth));
+				cnt++ ;
 			} else {
+				System.out.print(PROMPT);
 				System.out.println("잘못된 월을 입력하셨습니다. " ) ;
+				break ;
 			}
 	    }	
-		System.out.println(cnt + "회 만큼 반복하였습니다.") ;
+	    System.out.print(PROMPT);
+	    System.out.println(cnt + "회 만큼 반복하였습니다. Bye~") ;
 		scanner.close();
 		
 	}
