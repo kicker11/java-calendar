@@ -2,11 +2,45 @@ package garam.calendar;
 import java.util.Scanner ;
 public class Calendar {
 	
-	private static final int[] maxDayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;  
+	public static final int[] maxDayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
+	public int[][] calMon = new int[12][31];  
 
 	public int getMaxDaysOfMonth(int mon) {
 		return maxDayOfMonth[mon-1] ;
 	}
+	
+
+	public void setInit() {
+        for ( int MM = 0 ; MM < 12; MM++) {
+        	for ( int DD = 0; DD  < 31; DD++) {
+        		calMon[MM][DD] = DD + 1;
+        	}
+        }
+	}
+	
+	public void calPrint(int mon) {
+		System.out.println("   일   월   화   수   목   금   토");
+		System.out.println("-----------------------");
+
+        
+		int rep = 0;
+        		
+		for ( int currntDay = 0; currntDay < getMaxDaysOfMonth(mon) ; currntDay++ ) {
+			
+			if ( rep < 6 ) {
+				System.out.printf("%3d" , calMon[mon-1][currntDay] );
+				rep++ ;
+			} else {
+				System.out.printf("%3d" , calMon[mon-1][currntDay] );
+				System.out.print("\n");
+				rep = 0 ;
+			}
+		}
+		
+		System.out.print("\n");
+		System.out.print("\n");
+    }
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -18,25 +52,13 @@ public class Calendar {
 		System.out.println(" 22 23 24 25 26 27 28");
 		System.out.println(" 29 30 31            ");
 
+		Calendar cal = new Calendar() ;
 		
 		// 슛자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
-        //int[] maxDayOfMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ; 
-		
-        // maxDayOfMonth[0] = 31;
-        // maxDayOfMonth[1] = 28;
-        // maxDayOfMonth[2] = 31;
-        // maxDayOfMonth[3] = 30;
-        // maxDayOfMonth[4] = 31;
-        // maxDayOfMonth[5] = 30;
-        // maxDayOfMonth[6] = 31;
-        // maxDayOfMonth[7] = 31;
-        // maxDayOfMonth[8] = 30;
-        // maxDayOfMonth[9] = 31;
-        // maxDayOfMonth[10]= 30;
-        // maxDayOfMonth[11] = 31;
+
+		cal.setInit();
         
         String PROMPT = " Cal > " ;
-		Calendar cal = new Calendar() ;
 		Scanner scanner = new Scanner(System.in) ;
 		
 		
@@ -57,7 +79,12 @@ public class Calendar {
 			
 			if ( (inValMonth > 0 ) && (inValMonth < 13) ) {
 			    System.out.print(PROMPT);
-				System.out.printf("입력하신  %d 월의 마지막 날은 %d 입니다.\n" , inValMonth, cal.getMaxDaysOfMonth(inValMonth));
+				System.out.printf("입력하신  %d 월의 달력 입니다.\n" , inValMonth) ;
+				
+				//, cal.getMaxDaysOfMonth(inValMonth));
+				
+				cal.calPrint(inValMonth);
+				
 				cnt++ ;
 			} else {
 				System.out.print(PROMPT);
