@@ -105,6 +105,7 @@ public class Prompt {
 			}	
 			System.out.print(PROMPT);
 			System.out.println("Bye~");
+			break;
 		}
 	}
 		
@@ -113,7 +114,5 @@ public class Prompt {
 
 		Prompt p = new Prompt();
 		p.runPrompt();
-
 	}
-
 }
