@@ -19,14 +19,6 @@ public class Prompt {
 
 	public void cmdCal(Scanner scanner, Calendar cal) {
 
-		int cnt = 0;
-		int month = 1;
-		int year = 2017 ;
-		
-		//Scanner scanner = new Scanner(System.in) ;
-		
-		//Calendar cal = new Calendar();
-		
 		System.out.print("YEAR > ");
 		System.out.print("년도를 입력하세요 : ");
 		int inValYear = scanner.nextInt();
@@ -44,15 +36,13 @@ public class Prompt {
 
 			cal.calPrint(inValYear, inValMonth);
 
-			cnt++;
 		} else {
 			System.out.print(PROMPT);
 			System.out.println("잘못된 월을 입력하셨습니다. ");
 			return;
 		}
 		System.out.print(PROMPT);
-		//System.out.println(cnt + "회 만큼 반복하였습니다. Bye~");
-		//scanner.close();
+
 	}
 
 	public void cmdRegister(Scanner scanner, Calendar cal)  {
@@ -75,7 +65,7 @@ public class Prompt {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-  	   //scanner.close();
+
 	}
 	
 	public void cmdSearch(Scanner scanner, Calendar cal) {
@@ -90,7 +80,7 @@ public class Prompt {
 			e.printStackTrace();
 			System.err.println("일정 검색 중 오류가 발생했습니다. \n");
 		}
-		//scanner.close();
+
 	}
 	
 	public void runPrompt()  {

@@ -75,19 +75,34 @@ public class Calendar {
 	public void calPrint(int year, int mon) {
 		System.out.println("   일   월   화   수   목   금   토");
 		System.out.println("-----------------------");
+        
+		// get weekday automatically
+		int weekday = getWeekDay(year, mon, 1) ;
 
-		for (int currntDay = 1; currntDay < (getMaxDaysOfMonth(year, mon) + idxOfDays); currntDay++) {
-			int weekCheck = currntDay % 7;
-			// if ( (currntDay % 7 != 0)) {
-			if ((currntDay == 0) || (weekCheck != 0)) {
-				System.out.printf("%3s", calMon[currntDay]);
-			} else if ((currntDay != 0) && (weekCheck == 0)) {
-				System.out.printf("%3s \n", calMon[currntDay]);
+		for ( int i=0; i < weekday ; i++) {
+			System.out.print("   ");
+		}
+		
+		int maxDay = getMaxDaysOfMonth(year, mon);
+		int count = 7 - weekday;
+		int delim = (count < 7) ? count : 0 ;
+		
+		
+		for ( int i = 1 ; i <= count; i++) {
+			System.out.printf("%3d",  i) ;
+			}
+		System.out.println();
+		
+		
+		count++ ;
+		for (int i = count; i <= maxDay; i++) {
+			System.out.printf("%3d",  i) ;
+			if ( i % 7 == delim) {
+				System.out.println();
 			}
 		}
-
-		System.out.print("\n");
-		System.out.print("\n");
+		System.out.println();
+		System.out.println();
 	}
 
 	
@@ -99,7 +114,7 @@ public class Calendar {
 		
 		for ( int i=syear; i < year ; i++) {
 			int delta = isLeapYear(i) ? 366 : 365 ;
-			count += day -1 ;
+			count += delta ;
 		}
 		
 		for ( int i = 1; i < month ; i++) {
