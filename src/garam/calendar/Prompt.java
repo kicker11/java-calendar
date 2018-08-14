@@ -4,9 +4,9 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 public class Prompt {
-	
-	public static final String PROMPT = "Cal > " ;
-	
+
+	public static final String PROMPT = "Cal > ";
+
 	public void printMenu() {
 		System.out.println("+==========================================+");
 		System.out.println("+ 1. 일정 등록                                                           +");
@@ -27,7 +27,6 @@ public class Prompt {
 		System.out.print("월을 입력하세요 : ");
 		int inValMonth = scanner.nextInt();
 
-
 		cal.setInitVal(inValYear, inValMonth);
 
 		if ((inValMonth > 0) && (inValMonth < 13)) {
@@ -45,7 +44,7 @@ public class Prompt {
 
 	}
 
-	public void cmdRegister(Scanner scanner, Calendar cal)  {
+	public void cmdRegister(Scanner scanner, Calendar cal) {
 		System.out.println("[새 일정 등록]");
 		System.out.println("[날자를 입력해 주세요 ( yyyy-mm-dd )]");
 		String date = scanner.next();
@@ -53,27 +52,27 @@ public class Prompt {
 		String text = "";
 		while (true) {
 			String word = scanner.next();
-			text += word + " " ;
+			text += word + " ";
 			if (word.endsWith(";")) {
-				break ;
+				break;
 			}
 		}
-		
-  	   try {
-		cal.registerPlan(date, text);
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+
+		try {
+			cal.registerPlan(date, text);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
-	
+
 	public void cmdSearch(Scanner scanner, Calendar cal) {
 		System.out.println("[일정 검색]");
 		System.out.println("[날자를 입력해 주세요 ( yyyy-mm-dd )] \n");
 		String date = scanner.next();
 		try {
-			String plan = cal.searchPlan(date) ;
+			String plan = cal.searchPlan(date);
 			System.out.println(plan);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -82,33 +81,37 @@ public class Prompt {
 		}
 
 	}
-	
-	public void runPrompt()  {
-		
-		printMenu() ;
+
+	public void runPrompt() {
+
+		printMenu();
 
 		// 슛자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
 
 		String PROMPT = " Cal > ";
 
-		Scanner scanner = new Scanner(System.in) ;
-		
+		Scanner scanner = new Scanner(System.in);
+
 		while (true) {
 			Calendar cal = new Calendar();
 			while (true) {
 				String cmd = scanner.next();
-				if ( cmd.equals("1")) cmdRegister(scanner, cal);
-				else if (cmd.equals("2")) cmdSearch(scanner, cal) ;
-				else if (cmd.startsWith("3")) cmdCal(scanner, cal) ;
-				else if (cmd.startsWith("h")) printMenu() ;
-				else if (cmd.startsWith("q"))  break; 
-			}	
+				if (cmd.equals("1"))
+					cmdRegister(scanner, cal);
+				else if (cmd.equals("2"))
+					cmdSearch(scanner, cal);
+				else if (cmd.equals("3"))
+					cmdCal(scanner, cal);
+				else if (cmd.equals("h"))
+					printMenu();
+				else if (cmd.equals("q"))
+					break;
+			}
 			System.out.print(PROMPT);
 			System.out.println("Bye~");
 			break;
 		}
 	}
-		
 
 	public static void main(String[] args) {
 
