@@ -50,8 +50,7 @@ public class Prompt {
 		String date = scanner.next();
 		String text = "";
 		System.out.println("[일정을 입력해 주세요] (끝 문자 = ';'");
-		
-		
+
 		while (true) {
 			String word = scanner.next();
 			text += word + " ";
@@ -74,10 +73,10 @@ public class Prompt {
 		System.out.println("[날자를 입력해 주세요 ( yyyy-mm-dd )] \n");
 		String date = scanner.next();
 		PlanItem plan;
-		plan = cal.searchPlan(date) ;
-		
+		plan = cal.searchPlan(date);
+
 		if (plan != null) {
-		System.out.println(plan.detail);
+			System.out.println(plan.detail);
 		} else {
 			System.out.println("일정이 없습니다.");
 		}
