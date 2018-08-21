@@ -6,4 +6,5 @@
  *
  */
 module calendar {
+	requires jdk.compiler;
 }

@@ -3,6 +3,7 @@ package garam.calendar;
 import java.text.ParseException;
 import java.util.Scanner;
 
+
 public class Prompt {
 
 	public static final String PROMPT = "Cal > ";

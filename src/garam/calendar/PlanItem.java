@@ -32,4 +32,12 @@ public class PlanItem {
 		}
 		return date;
 	}
+
+	public String saveString() {
+		// TODO Auto-generated method stub
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd") ;
+		String sdate = formatter.format(planDate) ;
+		
+		return sdate + "," + "\"" + detail + "\"" + "\n";
+	}
 }
