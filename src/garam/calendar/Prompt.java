@@ -48,8 +48,10 @@ public class Prompt {
 		System.out.println("[새 일정 등록]");
 		System.out.println("[날자를 입력해 주세요 ( yyyy-mm-dd )]");
 		String date = scanner.next();
-		System.out.println("[일정을 입력해 주세요 (문장의 끝에 ; 으로 종료하세요]");
 		String text = "";
+		System.out.println("[일정을 입력해 주세요] (끝 문자 = ';'");
+		
+		
 		while (true) {
 			String word = scanner.next();
 			text += word + " ";
@@ -71,15 +73,14 @@ public class Prompt {
 		System.out.println("[일정 검색]");
 		System.out.println("[날자를 입력해 주세요 ( yyyy-mm-dd )] \n");
 		String date = scanner.next();
-		try {
-			String plan = cal.searchPlan(date);
-			System.out.println(plan);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.err.println("일정 검색 중 오류가 발생했습니다. \n");
+		PlanItem plan;
+		plan = cal.searchPlan(date) ;
+		
+		if (plan != null) {
+		System.out.println(plan.detail);
+		} else {
+			System.out.println("일정이 없습니다.");
 		}
-
 	}
 
 	public void runPrompt() {

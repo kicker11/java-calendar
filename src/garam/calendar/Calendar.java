@@ -1,7 +1,6 @@
 package garam.calendar;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -12,10 +11,10 @@ public class Calendar {
 	public String[] calMon = new String[37];
 	public int idxOfDays = 0;
 
-	private HashMap<Date, String> planMap;
+	private HashMap<Date, PlanItem> planMap;
 
 	public Calendar() {
-		planMap = new HashMap<Date, String>();
+		planMap = new HashMap<Date, PlanItem>();
 	}
 
 	/**
@@ -25,15 +24,15 @@ public class Calendar {
 	 * @throws ParseException
 	 */
 	public void registerPlan(String strDate, String plan) throws ParseException {
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
-		System.out.println(date);
-		planMap.put(date, plan);
+		//Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
+		
+		PlanItem p = new PlanItem(strDate, plan) ;
+		planMap.put(p.getDate(), p);
 	}
 
-	public String searchPlan(String strDate) throws ParseException {
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
-		String plan = planMap.get(date);
-		return plan;
+	public PlanItem searchPlan(String strDate) {
+		Date date = PlanItem.getDatefromString(strDate);
+		return planMap.get(date);
 	}
 
 	public void setSpace(int idx) {
