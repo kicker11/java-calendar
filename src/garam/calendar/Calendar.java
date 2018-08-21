@@ -126,16 +126,16 @@ public class Calendar {
 	}
 
 	// Simple Test Code
-	public static void main(String[] args) throws ParseException {
-		Calendar cal = new Calendar();
-		System.out.println(cal.getWeekDay(1970, 1, 1) == 4);
-		System.out.println(cal.getWeekDay(1971, 1, 1) == 5);
-		System.out.println(cal.getWeekDay(1972, 1, 1) == 6);
-		System.out.println(cal.getWeekDay(1973, 1, 1) == 1);
-		System.out.println(cal.getWeekDay(1974, 1, 1) == 2);
-
-		cal.registerPlan("2018-08-14", "1st 일정 등록");
-		System.out.println(cal.searchPlan("2018-08-14").equals("1st 일정 등록"));
-	}
+//	public static void main(String[] args) throws ParseException {
+//		Calendar cal = new Calendar();
+//		System.out.println(cal.getWeekDay(1970, 1, 1) == 4);
+//		System.out.println(cal.getWeekDay(1971, 1, 1) == 5);
+//		System.out.println(cal.getWeekDay(1972, 1, 1) == 6);
+//		System.out.println(cal.getWeekDay(1973, 1, 1) == 1);
+//		System.out.println(cal.getWeekDay(1974, 1, 1) == 2);
+//
+//		cal.registerPlan("2018-08-14", "1st 일정 등록");
+//		System.out.println(cal.searchPlan("2018-08-14").equals("1st 일정 등록"));
+//	}
 
 }
