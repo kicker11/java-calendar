@@ -9,13 +9,13 @@ public class Prompt {
 	public static final String PROMPT = "Cal > ";
 
 	public void printMenu() {
-		System.out.println("+==========================================+");
-		System.out.println("+ 1. 일정 등록                                                           +");
-		System.out.println("+ 2. 일정 조회                                                          +");
-		System.out.println("+ 3. 달력 표시                                                           +");
-		System.out.println("+ h. 메뉴 출력                                                          +");
+		System.out.println("+=========================================+");
+		System.out.println("+ 1. 일정 등록                                                         +");
+		System.out.println("+ 2. 일정 조회                                                         +");
+		System.out.println("+ 3. 달력 표시                                                         +");
+		System.out.println("+ h. 메뉴 출력                                                         +");
 		System.out.println("+ q. 종     료                                                           +");
-		System.out.println("+==========================================+");
+		System.out.println("+=========================================+");
 	}
 
 	public void cmdCal(Scanner scanner, Calendar cal) {
